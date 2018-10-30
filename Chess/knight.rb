@@ -3,7 +3,7 @@ require_relative 'piece'
 class Knight < Piece
   include Stepable
   
-  attr_reader :type, :pos, :board
+  attr_reader :type, :pos, :board, :color
   
   def initialize(color, board, pos)
     super
@@ -12,9 +12,9 @@ class Knight < Piece
   
   def to_s
     if @color == "white"
-      "♘"
+      " ♘ "
     else
-      "♞"
+      " ♞ "
     end
   end
 end

@@ -3,7 +3,7 @@ require_relative 'piece'
 class Rook < Piece
   include Slideable
   
-  attr_reader :type, :pos, :board
+  attr_reader :type, :pos, :board, :color
   
   def initialize(color, board, pos)
     super
@@ -12,9 +12,9 @@ class Rook < Piece
   
   def to_s
     if @color == "white"
-      "♖"
+      " ♖ "
     else
-      "♜"
+      " ♜ "
     end
   end
 end

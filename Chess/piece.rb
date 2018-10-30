@@ -21,12 +21,23 @@ module Slideable
     move_dirs.each do |diff|
       current_pos = self.pos
       while self.board.valid_pos?([current_pos[0] + diff[0], current_pos[1] + diff[1]])
+        
         current_pos = [current_pos[0] + diff[0], current_pos[1] + diff[1]]
-        potential_moves << current_pos
+        if self.board[current_pos].is_a?(NullPiece)
+          potential_moves << current_pos
+        elsif self.board[current_pos].color != @color
+          potential_moves << current_pos
+          break
+        else
+          break
+        end
       end
     end
     potential_moves
   end
+  
+  
+  
 end
 
 module Stepable
@@ -47,8 +58,11 @@ module Stepable
   def moves
     potential_moves = []
     move_dirs.each do |diff|
-      if self.board.valid_pos?([self.pos[0] + diff[0], self.pos[1] + diff[1]])
-        potential_moves << [self.pos[0] + diff[0], self.pos[1] + diff[1]]
+      current_pos = [self.pos[0] + diff[0], self.pos[1] + diff[1]]
+      if self.board.valid_pos?(current_pos)
+        if @board[current_pos].is_a?(NullPiece) || @board[current_pos].color != @color
+          potential_moves << current_pos
+        end
       end
     end
     potential_moves
@@ -64,9 +78,22 @@ class Piece
   end
   
   def to_s
-    "♙"
+    ""
   end
   
-  def moves
+  def empty?
+    
+  end
+  
+  def pos=(val)
+    
+  end
+  
+  def valid_moves
+    
+  end
+  
+  def move_into_check?(end_pos)
+    
   end
 end

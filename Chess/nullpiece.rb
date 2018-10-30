@@ -10,4 +10,8 @@ class NullPiece
     @symbol = nil
   end
   
+  def to_s
+    "   "
+  end
+  
 end

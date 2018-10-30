@@ -83,12 +83,16 @@ class Cursor
       return @cursor_pos
     when :left
       update_pos([0, -1])
+      nil
     when :right
       update_pos([0, 1])
+      nil
     when :up
       update_pos([-1, 0])
+      nil
     when :down
       update_pos([1, 0])
+      nil
     when :ctrl_c
       exit(0)
     end
