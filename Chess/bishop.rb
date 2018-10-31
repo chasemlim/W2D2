@@ -4,7 +4,8 @@ class Bishop < Piece
   
   include Slideable
   
-  attr_reader :type, :pos, :board, :color
+  attr_reader :type
+    attr_accessor :color, :board, :pos
   
   def initialize(color, board, pos)
     super

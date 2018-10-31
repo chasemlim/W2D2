@@ -73,6 +73,8 @@ end
 class Piece
   # attr_accessor
   # color = symbol, board = Board, pos = Array of row, col
+  attr_accessor :color, :board, :pos
+  
   def initialize(color, board, pos)
     @color, @board, @pos = color, board, pos
   end

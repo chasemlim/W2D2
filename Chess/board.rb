@@ -60,8 +60,11 @@ class Board
       raise OutOfBoundsError
     else
       piece = self[s]
+      
       self[s] = NullPiece.instance
       self[e] = piece
+      piece.pos = e
+      # debugger
     end
   end
   
@@ -71,7 +74,19 @@ class Board
   end
   
   def in_check?(color)
+    king_pos = find_king
     
+    
+  end
+  
+  def find_king
+    @grid.each_with_index do |row, idx1|
+      row.each_with_index do |col, idx2|
+        if col.is_a?(King)
+          return [idx1, idx2]
+        end
+      end
+    end
   end
   
 end
